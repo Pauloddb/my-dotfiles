@@ -8,12 +8,13 @@ font_size        11.0
 # Cursor
 cursor_shape beam
 cursor_blink_interval 0
+cursor_trail 3
 
 # Scroll
 scrollback_lines 10000
 
 # Aparência
-background_opacity 0.9
+background_opacity 0.8
 confirm_os_window_close 0
 
 # Desempenho
@@ -21,6 +22,6 @@ sync_to_monitor yes
 
 
 # BEGIN_KITTY_THEME
-# Cobalt2
+# Noctalia
 include current-theme.conf
 # END_KITTY_THEME
