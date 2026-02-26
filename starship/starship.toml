@@ -1,0 +1,75 @@
+# ~/.config/starship.toml
+
+# Performance (valores recomendados em 2026)
+scan_timeout = 35
+command_timeout = 700
+
+# Formato inspirado no p10k "lean"
+format = """
+$directory\
+$git_branch\
+$git_status\
+$package\
+$nodejs\
+$rust\
+$python\
+$golang\
+$java\
+$docker_context\
+$line_break\
+$character"""
+
+# Diretório truncado (igual p10k)
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "cyan bold"
+format = "[$path]($style) "
+
+# Git minimalista e rápido
+[git_branch]
+symbol = ""
+style = "magenta"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "red"
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+up_to_date = ""
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# Linguagens (só aparecem se detectarem arquivos)
+[nodejs]
+symbol = "⬢ "
+style = "green"
+format = "[$symbol($version )]($style)"
+
+[python]
+symbol = ""
+style = "yellow"
+format = "[$symbol($version )]($style)"
+
+[rust]
+symbol = ""
+style = "red"
+format = "[$symbol($version )]($style)"
+
+[golang]
+symbol = ""
+style = "cyan"
+format = "[$symbol($version )]($style)"
+
+# Prompt character (similar ao p10k)
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](yellow)"

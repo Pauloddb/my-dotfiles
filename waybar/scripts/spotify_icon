@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+# Checa se Spotify está rodando
+if playerctl -p spotify status &> /dev/null; then
+    artist=$(playerctl -p spotify metadata artist)
+    title=$(playerctl -p spotify metadata title)
+
+    # imprime JSON para o Waybar
+    echo "{\"text\": \"\", \"tooltip\": \"$artist - $title\"}"
+else
+    echo "{\"text\": \"\", \"tooltip\": \"\"}"
+fi

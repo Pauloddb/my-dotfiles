@@ -1,0 +1,16 @@
+* {
+    border: none;
+    border-radius: 16px;
+    font-family: "Cascadia Code", monospace;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: rgba(20, 20, 20, 0.6);
+    border-radius: 999px;
+    padding: 5px;
+}
+
+#workspaces button {
+    border-radius: 999px;
+}

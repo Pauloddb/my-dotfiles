@@ -1,0 +1,65 @@
+#!/usr/bin/env zsh
+
+# /home/paulo/.config/waybar/scripts/chat_toggle
+# Script para alternar visibilidade do chat IA
+
+CHAT_BINARY="/home/paulo/programacao/typescript/ai-chat/target/release/ai-chat"
+
+# Função para verificar se processo está rodando
+is_process_running() {
+    # Verificar se firefox está rodando com a URL do chat
+    if pgrep -f "firefox.*ai-chat" > /dev/null; then
+        # Verificar se a janela existe usando o nome da classe
+        if pgrep -f "ai-chat-window" > /dev/null; then
+            return 0
+        fi
+    fi
+    
+    # Verificar se chromium está rodando
+    if pgrep -f "chromium.*ai-chat" > /dev/null; then
+        return 0
+    fi
+    
+    # Verificar se o binário Rust está rodando
+    if pgrep -f "ai-chat" > /dev/null && ! pgrep -f "scripts" > /dev/null; then
+        return 0
+    fi
+    
+    return 1
+}
+
+# Lógica principal
+if is_process_running; then
+    # Se está rodando, fechar janela
+    echo "Fechando janela do Chat IA..."
+    
+    # Tentar fechar usando o nome da janela específico
+    if pgrep -f "firefox.*ai-chat" > /dev/null; then
+        pkill -f "firefox.*ai-chat" || true
+    elif pgrep -f "chromium.*ai-chat" > /dev/null; then
+        pkill -f "chromium.*ai-chat" || true
+    fi
+    
+    sleep 1
+    echo "Chat IA fechado"
+else
+    # Se não está rodando, iniciar
+    echo "Iniciando Chat IA..."
+    
+    # Iniciar servidores se não estiverem rodando
+    if ! pgrep -f "node.*3000" > /dev/null; then
+        cd /home/paulo/programacao/typescript/ai-api
+        npm run dev > /dev/null 2>&1 &
+        sleep 3
+    fi
+    
+    if ! pgrep -f "node.*3001" > /dev/null; then
+        cd /home/paulo/programacao/typescript/ai-api/mcp-server
+        npm run dev > /dev/null 2>&1 &
+        sleep 2
+    fi
+    
+    # Iniciar janela com o binário Rust
+    "$CHAT_BINARY" > /dev/null 2>&1 &
+    echo "Chat IA iniciado"
+fi
