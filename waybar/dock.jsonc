@@ -1,0 +1,21 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 48,
+  "margin-bottom": 5,
+  "margin-right": 5,
+  "margin-left": 5,
+  "padding": 5,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true
+  }
+}

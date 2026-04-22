@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+workspaces=($(hyprctl workspaces -j | jq -r '.[].id'))
+activeWindow=$(hyprctl activewindow -j)
+
+activeWorkspace=$(echo "$activeWindow" | jq -r '.workspace.id')
+activeClass=$(echo "$activeWindow" | jq -r '.class')
+
+output=""
+
+for ws in $workspaces; do
+  if [[ "$ws" == "$activeWorkspace" ]]; then
+    output+="<span class='workspace active'>$ws:$activeClass</span> "
+  else
+    output+="<span class='workspace'>$ws</span> "
+  fi
+done
+
+echo "$output"
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+  <item label="⏻ Desligar">
+    <action>systemctl poweroff</action>
+  </item>
+
+  <item label=" Reiniciar">
+    <action>systemctl reboot</action>
+  </item>
+
+  <item label="⏾ Suspender">
+    <action>systemctl suspend</action>
+  </item>
+</menu>

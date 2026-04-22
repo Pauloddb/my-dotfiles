@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+# /home/paulo/.config/waybar/scripts/chat_status
+# Script para verificar status do chat IA
+
+PID_FILE="/tmp/ai-chat.pid"
+CHAT_BINARY="/home/paulo/programacao/typescript/ai-chat/target/release/ai-chat-layer-shell"
+
+# Função para verificar se processo está rodando
+is_process_running() {
+    # Verificar se a janela layer-shell está rodando
+    if pgrep -f "ai-chat-layer-shell" > /dev/null || pgrep -f "ai-chat-window" > /dev/null; then
+        return 0
+    fi
+    
+    return 1
+}

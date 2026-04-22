@@ -1,0 +1,209 @@
+@define-color main_color #ed946f;
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "Cascadia Code NF", monospace;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: rgba(43, 48, 59, 0);
+  color: rgba(255, 255, 255, 1);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  /* border: 2px solid @main_color; */
+}
+
+.modules-right,
+.modules-center,
+.modules-left {
+  border: 2px solid @main_color;
+  border-radius: 17px;
+  box-shadow: 0 0 8px @main_color;
+  background-color: rgba(31, 31, 37, 0.7);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#custom-chat-ai,
+#custom-power,
+#mpd {
+  padding: 0 8px;
+  /* color: #ffffff; */
+  border-radius: 999px;
+  transition-duration: 0.5s;
+  transition-property: all;
+}
+
+#clock {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#memory {
+  color: #57c785;
+  border-color: #57c785;
+  font-weight: bold;
+}
+
+#cpu {
+  color: #d6b97c;
+  border-color: #d6b97c;
+  font-weight: bold;
+}
+
+#pulseaudio {
+  color: #7d58c1;
+  border-color: #7d58c1;
+  font-weight: bold;
+}
+
+/* Módulo de Chat IA */
+#custom-chat-ai {
+  padding: 0 8px;
+  border-radius: 999px;
+  transition-duration: 0.5s;
+  transition-property: all;
+  font-weight: bold;
+}
+
+/* Estado ativo (janela visível) */
+#custom-chat-ai.chat-active {
+  color: #10b981; /* Verde */
+  border-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+/* Estado inativo (janela oculta) */
+#custom-chat-ai.chat-inactive {
+  color: #6b7280; /* Cinza */
+  border-color: #6b7280;
+  opacity: 0.7;
+}
+
+/* Hover effects */
+#custom-chat-ai:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#custom-chat-ai.chat-active:hover {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+#custom-chat-ai.chat-inactive:hover {
+  background-color: rgba(107, 114, 128, 0.2);
+}
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#tray:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#custom-power:hover,
+#mpd:hover {
+  border: 2px solid @main_color;
+}
+
+#memory:hover {
+  border-color: #57c785;
+}
+
+#cpu:hover {
+  border-color: #d6b97c;
+}
+
+#pulseaudio:hover {
+  border-color: #7d58c1;
+}
+
+#custom-workspaces .workspace {
+  border-radius: 999px;
+  padding: 0 6px;
+}
+
+#custom-workspaces .active {
+  border: 2px solid #36bfed;
+  font-weight: bold;
+}
+
+#custom-workspaces .workspace:hover {
+  border: 1px solid #36bfed;
+}
+
+#custom-spotify {
+  font-size: 28px;
+  border-radius: 999px;
+  padding: 0 8px;
+  border: 2px solid #3de376;
+}
+
+#power-profiles-daemon {
+  border: 2px solid;
+  font-size: 22px;
+}
+
+#power-profiles-daemon.balanced {
+  border-color: #0077d3;
+}
+
+#power-profiles-daemon.power-saver {
+  border-color: #4fe100;
+}
+
+#power-profiles-daemon.performance {
+  border-color: #ecd000;
+}
+
+#custom-separator {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#custom-power {
+  padding: 0 9px;
+  font-size: 22px;
+}
+
+#custom-power:hover {
+  border: none;
+  color: red;
+}
+
+#custom-icon {
+  font-size: 25px;
+  color: #36bfed;
+  padding: 0 10px;
+  font-weight: bolder;
+}
