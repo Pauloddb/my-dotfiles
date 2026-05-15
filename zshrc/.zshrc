@@ -47,7 +47,6 @@ export GOOGLE_CLOUD_PROJECT_ID=gemini-cli-482322
 # Aliases
 alias save="save_config"
 alias cls='clear'
-alias cc='create_cmd'
 alias ls='lsd'
 alias rb='restart_bar'
 alias rd='restart_dock'
@@ -56,3 +55,5 @@ alias cd='z'
 alias tsnap='take_snap'
 alias i='yay -Sy'
 alias s='yay -Ss'
+
+
