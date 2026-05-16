@@ -21,7 +21,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd(vars.bar)
 	hl.exec_cmd("awww-daemon")
-	hl.exec_cmd("awww img " .. vars.imageWallpaper)
+	hl.exec_cmd(vars.wallpaperCmd)
 	hl.exec_cmd("mako &")
 end)
 

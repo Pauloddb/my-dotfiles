@@ -4,10 +4,8 @@ hl.bind(vars.mainMod .. " + SPACE", hl.dsp.exec_cmd(vars.menu))
 hl.bind(vars.mainMod .. " + RETURN", hl.dsp.exec_cmd(vars.terminal))
 hl.bind(vars.mainMod .. " + E", hl.dsp.exec_cmd(vars.fileManager))
 hl.bind(vars.mainMod .. " + ALT + P", hl.dsp.exec_cmd(vars.colorPicker))
-hl.bind(
-	vars.mainMod .. " + W",
-	hl.dsp.exec_cmd("pgrep -x qs >/dev/null && pkill qs || qs -c ~/code/quickshell/bar/ >/dev/null 2>&1 &")
-)
+hl.bind(vars.mainMod .. " + B", hl.dsp.exec_cmd(vars.browser))
+hl.bind(vars.mainMod .. " + W", hl.dsp.exec_cmd(vars.toggleBar))
 
 for i = 1, vars.workspaces do
 	hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))

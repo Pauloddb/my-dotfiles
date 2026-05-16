@@ -6,6 +6,7 @@ local servers = {
   "rust_analyzer",
   "ts_ls",
   "pyright",
+  "slint_lsp",
 }
 vim.lsp.enable(servers)
 

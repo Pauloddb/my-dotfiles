@@ -40,4 +40,5 @@ return {
       follow_cwd = true,
     },
   },
+  { "slint-ui/vim-slint" },
 }
