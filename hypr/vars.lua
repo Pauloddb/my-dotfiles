@@ -26,7 +26,7 @@ M.videoWallpaper = "/home/paulo/Pictures/wallpapers/animated/denji.mp4"
 local wallpaperType = "image"
 
 if wallpaperType == "image" then
-	M.wallpaperCmd = "awww img " .. M.imageWallpaper
+	M.wallpaperCmd = "pkill mpvpaper; awww img " .. M.imageWallpaper
 elseif wallpaperType == "video" then
 	M.wallpaperCmd = "mpvpaper -f -o \"--loop --no-audio --hwdec=auto\" '*' " .. M.videoWallpaper
 end

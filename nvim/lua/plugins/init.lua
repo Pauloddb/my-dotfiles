@@ -41,4 +41,16 @@ return {
     },
   },
   { "slint-ui/vim-slint" },
+  {
+    "anurag3301/nvim-platformio.lua",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("platformio").setup {
+        -- Configurações opcionais
+      }
+    end,
+  },
 }

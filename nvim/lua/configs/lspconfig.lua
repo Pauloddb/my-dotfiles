@@ -15,6 +15,19 @@ vim.lsp.enable(servers)
 vim.lsp.config("rust_analyzer", {
   settings = {
     ["rust-analyzer"] = {
+      inlayHints = {
+        bindingModeHints = { enable = false },
+        closureCaptureHints = { enable = true },
+        closureReturnTypeHints = { enable = "always" },
+        discriminantHints = { enable = "always" },
+        expressionAdjustmentHints = { enable = "always" },
+        implicitDrops = { enable = false },
+        lifetimeElisionHints = { enable = "always", useParameterNames = true },
+        parameterHints = { enable = true },
+        reborrowHints = { enable = "always" },
+        renderColons = true,
+        typeHints = { enable = true, hideClosureInitialization = false, hideNamedConstructor = false },
+      },
       cargo = { allFeatures = true },
       procMacro = {
         enable = true,
@@ -27,6 +40,15 @@ vim.lsp.config("rust_analyzer", {
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
+      hint = {
+        enable = true,
+        arrayIndex = "Enable",
+        await = true,
+        paramName = "All",
+        paramType = true,
+        semicolon = "All",
+        setType = true,
+      },
       diagnostics = {
         globals = { "hl" },
       },

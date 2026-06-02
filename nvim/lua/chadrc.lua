@@ -9,8 +9,8 @@ M.base46 = {
   transparency = false, -- mude para true se quiser fundo transparente
 
   hl_override = {
-    Type = { fg = "#FFCB6B" }, -- amarelo
-    ["@type"] = { fg = "#FFCB6B" }, -- TreeSitter type
+    -- Type = { fg = "#FFCB6B" }, -- amarelo
+    -- ["@type"] = { fg = "#FFCB6B" }, -- TreeSitter type
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },

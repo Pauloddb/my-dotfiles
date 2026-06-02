@@ -6,6 +6,7 @@ hl.bind(vars.mainMod .. " + E", hl.dsp.exec_cmd(vars.fileManager))
 hl.bind(vars.mainMod .. " + ALT + P", hl.dsp.exec_cmd(vars.colorPicker))
 hl.bind(vars.mainMod .. " + B", hl.dsp.exec_cmd(vars.browser))
 hl.bind(vars.mainMod .. " + W", hl.dsp.exec_cmd(vars.toggleBar))
+hl.bind(vars.mainMod .. " + ALT + W", hl.dsp.exec_cmd(vars.wallpaperCmd))
 
 for i = 1, vars.workspaces do
 	hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
