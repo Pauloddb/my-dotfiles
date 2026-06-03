@@ -53,4 +53,11 @@ return {
       }
     end,
   },
+  {
+    "jackguo380/vim-lsp-cxx-highlight",
+    config = function()
+      vim.g.lsp_cxx_hl_use_text_props = 1
+      vim.g.lsp_cxx_hl_light_bg = 1
+    end,
+  },
 }

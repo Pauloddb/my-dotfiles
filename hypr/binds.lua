@@ -29,3 +29,32 @@ hl.bind("SUPER + UP", hl.dsp.focus({ direction = "u" }))
 
 -- Foco para janela abaixo
 hl.bind("SUPER + DOWN", hl.dsp.focus({ direction = "d" }))
+
+-- ============================================
+-- CONTROLE DE VOLUME
+-- ============================================
+
+-- Aumentar volume (segurar para repetir)
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
+
+-- Diminuir volume (segurar para repetir)
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
+
+-- Mute do áudio (funciona mesmo com tela bloqueada)
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+
+-- Mute do microfone (opcional)
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
+
+-- ============================================
+-- CONTROLE DE MÍDIA (requer playerctl)
+-- ============================================
+
+-- Play/Pause
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+
+-- Faixa anterior
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+-- Próxima faixa
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
