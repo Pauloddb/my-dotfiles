@@ -16,6 +16,12 @@ for i = 1, vars.workspaces do
 	hl.bind(vars.mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
+-- Mover janela: SUPER + botão esquerdo do mouse
+hl.bind(vars.mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+
+-- Redimensionar janela: SUPER + botão direito do mouse
+hl.bind(vars.mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
 hl.bind(vars.mainMod .. " + Q", hl.dsp.window.close())
 
 -- Foco para janela à esquerda
