@@ -1,0 +1,52 @@
+* {
+    bg: #1e1e2e;
+    fg: #cdd6f4;
+    accent: #89b4fa;
+    radius: 14px;
+}
+
+/* JANELA */
+window {
+    width: 40%;
+    background-color: @bg;
+    border-radius: @radius;
+}
+
+/* CONTAINER PRINCIPAL */
+mainbox {
+    padding: 20px;
+    background-color: @bg;
+}
+
+/* BARRA DE INPUT */
+inputbar {
+    background-color: @bg;
+    color: @fg;
+}
+
+/* TEXTO DIGITADO */
+entry {
+    background-color: @bg;
+    color: @fg;
+}
+
+/* LISTA */
+listview {
+    background-color: @bg;
+    spacing: 10px;
+    lines: 8;
+}
+
+/* ITENS */
+element {
+    background-color: transparent;
+    color: @fg;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* ITEM SELECIONADO */
+element selected {
+    background-color: @accent;
+    color: #11111b;
+}
