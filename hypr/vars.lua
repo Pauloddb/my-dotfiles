@@ -12,6 +12,7 @@ M.toggleBar = "pgrep -x qs >/dev/null && pkill qs || " .. M.bar .. " >/dev/null 
 
 M.monitor = "eDP-1"
 M.colorPicker = "hyprpicker -a >/dev/null"
+M.screenshotCmd = "hyprshot -m region --clipboard-only"
 M.cursorTheme = "Bibata-Modern-Ice"
 M.cursorSize = 24
 M.workspaces = 9
@@ -20,7 +21,7 @@ M.accentColor = "#ec936f"
 M.backgroundColor = "#292d3e"
 
 -- Wallpaper
-M.imageWallpaper = "/home/paulo/Pictures/wallpapers/static/celeste.png"
+M.imageWallpaper = "/home/paulo/Pictures/wallpapers/static/wp4265395-hollow-knight-the-grimm-troupe-wallpapers.jpg"
 M.videoWallpaper = "/home/paulo/Pictures/wallpapers/animated/denji.mp4"
 
 local wallpaperType = "image"

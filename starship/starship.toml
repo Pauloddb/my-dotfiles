@@ -6,12 +6,12 @@ format = """
 [](base)\
 $os\
 $username\
-[⧽](fg:text bg:base)\
+[](fg:sapphire bg:base)\
 $directory\
-[⧽](fg:peach bg:base)\
+[](fg:peach bg:base)\
 $git_branch\
 $git_status\
-[⧽](fg:green bg:base)\
+[](fg:red bg:base)\
 $c\
 $rust\
 $golang\
@@ -21,11 +21,8 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[⧽](fg:teal bg:base)\
-$docker_context\
-[⧽](fg:blue bg:base)\
-$time\
-[ ](fg:base)\
+[](fg:teal bg:base)\
+[](fg:base)\
 $line_break$character"""
 
 palette = 'catppuccin_mocha'
@@ -51,7 +48,7 @@ red = "#f8526e"
 maroon = "#eba0ac"
 peach = "#fab387"
 yellow = "#f9e2af"
-green = "#a6e3a1"
+green = "#89e051"
 teal = "#94e2d5"
 sky = "#89dceb"
 sapphire = "#74c7ec"
@@ -99,7 +96,7 @@ RedHatEnterprise = "󱄛"
 [username]
 show_always = true
 style_user = "bg:base fg:text"
-style_root = "bg:base fg:yellow"
+style_root = "bg:base fg:red"
 format = '[ $user ]($style)'
 
 [directory]
@@ -109,20 +106,20 @@ truncation_length = 6
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"code" = " "
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = "󰝚"
+"Pictures" = ""
+"code" = ""
 
 [git_branch]
 symbol = ""
 style = "bg:teal"
-format = '[[ $symbol $branch ](fg:green bg:base)]($style)'
+format = '[[ $symbol $branch ](fg:red bg:base)]($style)'
 
 [git_status]
 style = "bg:teal"
-format = '[[($all_status$ahead_behind )](fg:green bg:base)]($style)'
+format = '[[($all_status$ahead_behind )](fg:red bg:base)]($style)'
 
 [nodejs]
 symbol = ""
@@ -130,7 +127,7 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:teal bg:base)]($style)'
 
 [c]
-symbol = " "
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:teal bg:base)]($style)'
 
@@ -150,7 +147,7 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:teal bg:base)]($style)'
 
 [java]
-symbol = " "
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:teal bg:base)]($style)'
 
@@ -165,7 +162,7 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:teal bg:base)]($style)'
 
 [python]
-symbol = " "
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:teal bg:base)]($style)'
 
@@ -187,7 +184,7 @@ disabled = false
 disabled = false
 success_symbol = '[╰─\$](bold fg:green)'
 error_symbol = '[╰─\$](bold fg:red)'
-vimcmd_symbol = '[-<](bold fg:creen)'
-vimcmd_replace_one_symbol = '[-<](bold fg:purple)'
-vimcmd_replace_symbol = '[-<](bold fg:purple)'
-vimcmd_visual_symbol = '[-<](bold fg:lavender)'
+vimcmd_symbol = '[╰─\$](bold fg:green)'
+vimcmd_replace_one_symbol = '[╰─\$](bold fg:purple)'
+vimcmd_replace_symbol = '[╰─\$](bold fg:purple)'
+vimcmd_visual_symbol = '[╰─\$](bold fg:lavender)'

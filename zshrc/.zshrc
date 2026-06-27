@@ -56,4 +56,4 @@ alias tsnap='take_snap'
 alias i='yay -Sy'
 alias s='yay -Ss'
 
-
+# bindkey -v
