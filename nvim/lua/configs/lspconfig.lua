@@ -10,6 +10,7 @@ local servers = {
 	"asm_lsp",
 	-- "qmlls",
 	"tailwindcss",
+	"elixirls",
 }
 
 vim.lsp.enable(servers)
@@ -179,6 +180,26 @@ vim.lsp.config("vtsls", {
 				functionLikeReturnTypes = { enabled = true },
 				enumMemberValues = { enabled = true },
 			},
+		},
+	},
+})
+
+-- ============================================
+-- ELIXIRLS
+-- ============================================
+
+vim.lsp.config("elixirls", {
+	cmd = {
+		vim.fn.stdpath "data" .. "/mason/bin/elixir-ls",
+	},
+	settings = {
+		elixirLS = {
+			dialyzerEnabled = true,
+			dialyzerFormat = "dialyxir_short",
+			fetchDeps = false, -- não rode mix deps.get automaticamente
+			suggestSpecs = true,
+			signatureAfterComplete = true,
+			enableTestLenses = false,
 		},
 	},
 })

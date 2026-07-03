@@ -9,6 +9,8 @@ hl.bind(vars.mainMod .. " + W", hl.dsp.exec_cmd(vars.toggleBar))
 hl.bind(vars.mainMod .. " + ALT + W", hl.dsp.exec_cmd(vars.wallpaperCmd))
 hl.bind(vars.mainMod .. " + S", hl.dsp.exec_cmd(vars.screenshotCmd))
 
+hl.bind(vars.mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
+
 for i = 1, vars.workspaces do
 	hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
 end
