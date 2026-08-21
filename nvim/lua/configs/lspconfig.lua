@@ -8,9 +8,11 @@ local servers = {
 	"pyright",
 	"slint_lsp",
 	"asm_lsp",
-	-- "qmlls",
+	"qmlls",
 	"tailwindcss",
 	"elixirls",
+	"clangd",
+	"zls",
 }
 
 vim.lsp.enable(servers)
@@ -204,24 +206,73 @@ vim.lsp.config("elixirls", {
 	},
 })
 
--- -- ============================================
--- -- CLANGD XTENSA: tudo em um (highlighting + diagnostics + autocomplete)
--- -- ============================================
---
--- vim.lsp.enable { "clangd" }
---
--- vim.lsp.config("clangd", {
---   cmd = {
---     vim.fn.expand "~/.local/bin/clangd-xtensa",
---     "--background-index",
---     "--compile-commands-dir=.",
---     "--query-driver=/home/paulo/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-g++",
---     "--clang-tidy",
---     "--completion-style=bundled",
---     "--pch-storage=memory",
---     "--cross-file-rename",
---     "--header-insertion=iwyu",
---   },
---   root_markers = { "platformio.ini", "compile_commands.json", ".git" },
---   filetypes = { "c", "cpp", "objc", "objcpp" },
--- })
+-- ============================================
+-- CLANGD
+-- ============================================
+
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--clang-tidy", -- Ativa análise estática com clang-tidy
+		"--background-index", -- Indexação em background para melhor performance
+		"--offset-encoding=utf-8", -- FIX: evita erro de encoding no Neovim 0.11+
+		"--header-insertion=never", -- Não insere headers automaticamente
+		"--completion-style=bundled", -- Completions mais completos
+		"--pch-storage=memory", -- Armazena precompiled headers em RAM (mais rápido)
+		"--cross-file-rename", -- Permite renomear símbolos entre arquivos
+	},
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+	root_markers = {
+		".clangd",
+		".clang-tidy",
+		".clang-format",
+		"compile_commands.json",
+		"compile_flags.txt",
+		"configure.ac", -- AutoTools
+		".git",
+	},
+	capabilities = {
+		textDocument = {
+			completion = {
+				editsNearCursor = true,
+			},
+		},
+		offsetEncoding = { "utf-8", "utf-16" },
+	},
+})
+
+-- ============================================
+-- ZLS
+-- ============================================
+vim.lsp.config("zls", {
+	cmd = { "zls" }, -- ou o caminho completo se não estiver no PATH
+	filetypes = { "zig", "zir" },
+	root_markers = { "build.zig", ".git" },
+	single_file_support = true,
+	settings = {
+		zls = {
+			-- Habilita build-on-save diagnostics (executa `zig build` no save)
+			-- Para isso funcionar, seu build.zig precisa ter um step "check"
+			-- enable_build_on_save = true,
+			-- build_on_save_step = "check",
+
+			-- Caminho do executável zig (se não estiver no PATH)
+			-- zig_exe_path = "/usr/bin/zig",
+
+			-- Habilita inlay hints (similar ao rust_analyzer)
+			enable_inlay_hints = true,
+
+			-- Habilita semantic tokens para syntax highlighting avançado
+			enable_semantic_tokens = true,
+
+			-- Habilita snippets de completion
+			enable_snippets = true,
+
+			-- Habilita warnings de style guide
+			warn_style = false,
+
+			-- Completions com operadores * e ?
+			operator_completions = true,
+		},
+	},
+})
