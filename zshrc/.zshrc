@@ -11,6 +11,7 @@ eval "$(starship init zsh)"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 # export PATH="$HOME/.pyenv/bin:$PATH"
 
 # Tools init

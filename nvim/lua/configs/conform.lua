@@ -14,6 +14,7 @@ local options = {
 		css = { "prettier" },
 		scss = { "prettier" },
 		html = { "prettier" },
+		haskell = { "fourmolu" },
 	},
 	formatters = {
 		prettier = {

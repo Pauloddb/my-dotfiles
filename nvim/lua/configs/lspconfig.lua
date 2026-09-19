@@ -13,6 +13,7 @@ local servers = {
 	"elixirls",
 	"clangd",
 	"zls",
+	"hls",
 }
 
 vim.lsp.enable(servers)
@@ -273,6 +274,25 @@ vim.lsp.config("zls", {
 
 			-- Completions com operadores * e ?
 			operator_completions = true,
+		},
+	},
+})
+
+-- ============================================
+-- HLS (HASKELL LANGUAGE SERVER)
+-- ============================================
+
+vim.lsp.config("hls", {
+	on_attach = function(client, _)
+		-- Desabilita formatação do HLS (usa o conform.nvim)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
+	end,
+	settings = {
+		haskell = {
+			formattingProvider = "fourmolu",
+			maxCompletions = 40,
+			checkProject = true,
 		},
 	},
 })
