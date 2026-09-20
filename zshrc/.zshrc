@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 # Path
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:/usr/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
@@ -56,5 +56,6 @@ alias cd='z'
 alias tsnap='take_snap'
 alias i='yay -Sy'
 alias s='yay -Ss'
+alias setup_idf='source /home/paulo/.espressif/tools/activate_idf_master.sh'
 
 # bindkey -v

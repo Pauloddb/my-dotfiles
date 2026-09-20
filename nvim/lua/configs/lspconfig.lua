@@ -210,35 +210,45 @@ vim.lsp.config("elixirls", {
 -- ============================================
 -- CLANGD
 -- ============================================
-
 vim.lsp.config("clangd", {
 	cmd = {
 		"clangd",
-		"--clang-tidy", -- Ativa análise estática com clang-tidy
-		"--background-index", -- Indexação em background para melhor performance
-		"--offset-encoding=utf-8", -- FIX: evita erro de encoding no Neovim 0.11+
-		"--header-insertion=never", -- Não insere headers automaticamente
-		"--completion-style=bundled", -- Completions mais completos
-		"--pch-storage=memory", -- Armazena precompiled headers em RAM (mais rápido)
-		"--cross-file-rename", -- Permite renomear símbolos entre arquivos
+		"--clang-tidy",
+		"--background-index",
+		"--offset-encoding=utf-8",
+		"--header-insertion=never",
+		"--completion-style=bundled",
+		"--pch-storage=memory",
+		"--cross-file-rename",
+		"--query-driver=/home/paulo/.espressif/tools/xtensa-esp-elf/*/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc",
 	},
-	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+
+	filetypes = {
+		"c",
+		"cpp",
+		"objc",
+		"objcpp",
+		"cuda",
+	},
+
 	root_markers = {
+		"compile_commands.json",
 		".clangd",
 		".clang-tidy",
 		".clang-format",
-		"compile_commands.json",
-		"compile_flags.txt",
-		"configure.ac", -- AutoTools
 		".git",
 	},
+
 	capabilities = {
 		textDocument = {
 			completion = {
 				editsNearCursor = true,
 			},
 		},
-		offsetEncoding = { "utf-8", "utf-16" },
+		offsetEncoding = {
+			"utf-8",
+			"utf-16",
+		},
 	},
 })
 

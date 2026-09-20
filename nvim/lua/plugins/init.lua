@@ -43,18 +43,6 @@ return {
 	},
 	{ "slint-ui/vim-slint" },
 	{
-		"anurag3301/nvim-platformio.lua",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-		config = function()
-			require("platformio").setup {
-				-- Configurações opcionais
-			}
-		end,
-	},
-	{
 		"jackguo380/vim-lsp-cxx-highlight",
 		config = function()
 			vim.g.lsp_cxx_hl_use_text_props = 1
