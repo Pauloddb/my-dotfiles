@@ -64,3 +64,4 @@ hl.config({
 })
 
 require("binds")
+require("rules")
