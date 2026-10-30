@@ -41,7 +41,7 @@ hl.config({
 		col = { active_border = vars.accentColor },
 	},
 	decoration = {
-		rounding = 16,
+		rounding = 8,
 		rounding_power = 4,
 
 		active_opacity = 1,
